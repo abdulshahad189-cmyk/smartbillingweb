@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d1b2a;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    background: #0d1b2a;
+}
+
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b);
+    padding-top: 80px;
+}
+
+.features-section,
+.about-section,
+.contact-section {
+    padding: 80px 0;
+}
+
+.feature-card {
+    background: #1b263b;
+    padding: 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: #415a77;
+}
+
+.phone-img {
+    max-height: 500px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+footer {
+    background: #1b263b;
+}
+
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 24px;
+    padding: 12px 15px;
+    border-radius: 50%;
+    text-decoration: none;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POS - Smart Billing</title>
+  <link rel="stylesheet" href="pos-style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 POS - Smart Billing</h1>
+
+    <div class="input-section">
+      <input list="product-list" type="text" id="barcode" placeholder="Enter / Scan Product Code" autofocus>
+      <datalist id="product-list"></datalist>
+      <button onclick="addProduct()">Add Product</button>
+      <button id="scan-btn" onclick="toggleScanner()">Scan</button>
+      <button onclick="clearCart()" class="clear-btn">Clear Cart</button>
+      <button onclick="checkout()" class="pay">Checkout</button>
+      <button onclick="sendEReceiptPrompt()" id="ereceipt-btn">Send E-Receipt</button>
+    </div>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price (₹)</th>
+            <th>Qty</th>
+            <th>Subtotal (₹)</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="cart"></tbody>
+      </table>
+    </div>
+
+    <div class="summary">
+      <h2>Total: ₹<span id="total">0</span></h2>
+    </div>
+
+    <div id="message" class="message"></div>
+  </div>
+
+  <!-- html5-qrcode -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/minified/html5-qrcode.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <div id="scanner" class="scanner" aria-hidden="true">
+    <div class="scanner-inner">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <button class="close-scan" onclick="stopScanner()">Close</button>
+        <label for="camera-select">Camera:</label>
+        <select id="camera-select" onchange="switchCamera(this.value)"></select>
+      </div>
+      <div id="scanner-renderer"></div>
+    </div>
+  </div>
+
+  <script src="pos-script.js"></script>
+</body>
+</html>
